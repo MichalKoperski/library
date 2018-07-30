@@ -28,24 +28,42 @@ public class Rent {
     public int getId() {
         return idRent;
     }
-    @ManyToOne
+
+    @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="IDCOPY")
-    //@Column(name = "COPYOFBOOK")
-    public CopyOfBook getCopyOfBook() {
-        return copyOfBook;
-    }
-    @ManyToOne
+    public CopyOfBook getCopyOfBook() {return copyOfBook;}
+
+    @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="IDCUSTOMER")
-    //@Column(name = "CUSTOMER")
-    public Customer getCustomer() {
-        return customer;
-    }
+    public Customer getCustomer() { return customer;}
+
     @Column(name = "DATEOFRENT")
     public String getDateOfRent() {
         return dateOfRent;
     }
+
     @Column(name = "RENTTILL")
     public String getRentTill() {
         return rentTill;
+    }
+
+    public void setIdRent(int idRent) {
+        this.idRent = idRent;
+    }
+
+    public void setCopyOfBook(CopyOfBook copyOfBook) {
+        this.copyOfBook = copyOfBook;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setDateOfRent(String dateOfRent) {
+        this.dateOfRent = dateOfRent;
+    }
+
+    public void setRentTill(String rentTill) {
+        this.rentTill = rentTill;
     }
 }

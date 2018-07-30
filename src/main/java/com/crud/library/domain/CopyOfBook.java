@@ -1,5 +1,7 @@
 package com.crud.library.domain;
 
+import org.hibernate.engine.internal.Cascade;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -35,13 +37,19 @@ public class CopyOfBook {
     public String getStatus() {
         return status;
     }
-    @OneToMany(
-            targetEntity = Rent.class,
-            mappedBy = "copyOfBook",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    public Rent getRentInfo() {
-        return new Rent();
+    @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinColumn(name="IDCOPY")
+    public Rent getRentInfo() {return new Rent();}
+
+    public void setIdCopy(int idCopy) {
+        this.idCopy = idCopy;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

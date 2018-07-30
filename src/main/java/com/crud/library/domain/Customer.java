@@ -37,13 +37,23 @@ public class Customer {
     public String getDateOfJoin() {
         return dateOfJoin;
     }
-    @OneToMany(
-            targetEntity = Rent.class,
-            mappedBy = "customer",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    public Rent getRentInfo() {
-        return new Rent();
+    @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinColumn(name="IDCUSTOMER")
+    public Rent getRentInfo() {return new Rent();}
+
+    public void setIdCustomer(int idCustomer) {
+        this.idCustomer = idCustomer;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setDateOfJoin(String dateOfJoin) {
+        this.dateOfJoin = dateOfJoin;
     }
 }
