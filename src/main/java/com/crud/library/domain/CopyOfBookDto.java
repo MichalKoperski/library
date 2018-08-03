@@ -25,4 +25,16 @@ public class CopyOfBookDto {
     public String getStatus() {
         return status;
     }
+
+    public void setId(int idCopy) {
+        this.idCopy = idCopy;
+    }
+
+    public void setBookDto(BookDto bookDto) {
+        this.bookDto = bookDto;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

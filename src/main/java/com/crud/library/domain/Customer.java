@@ -41,7 +41,7 @@ public class Customer {
     @JoinColumn(name="IDCUSTOMER")
     public Rent getRentInfo() {return new Rent();}
 
-    public void setIdCustomer(int idCustomer) {
+    public void setId(int idCustomer) {
         this.idCustomer = idCustomer;
     }
 

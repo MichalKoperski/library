@@ -30,4 +30,20 @@ public class CustomerDto {
     public String getDateOfJoin() {
         return dateOfJoin;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setDateOfJoin(String dateOfJoin) {
+        this.dateOfJoin = dateOfJoin;
+    }
 }

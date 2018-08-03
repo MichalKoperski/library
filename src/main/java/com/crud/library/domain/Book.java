@@ -50,7 +50,7 @@ public class Book {
         return new ArrayList<CopyOfBook>();
     }
 
-    public void setIdBook(int idBook) {
+    public void setId(int idBook) {
         this.idBook = idBook;
     }
 

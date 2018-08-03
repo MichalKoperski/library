@@ -41,7 +41,7 @@ public class CopyOfBook {
     @JoinColumn(name="IDCOPY")
     public Rent getRentInfo() {return new Rent();}
 
-    public void setIdCopy(int idCopy) {
+    public void setId(int idCopy) {
         this.idCopy = idCopy;
     }
 

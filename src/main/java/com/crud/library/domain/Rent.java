@@ -47,7 +47,7 @@ public class Rent {
         return rentTill;
     }
 
-    public void setIdRent(int idRent) {
+    public void setId(int idRent) {
         this.idRent = idRent;
     }
 

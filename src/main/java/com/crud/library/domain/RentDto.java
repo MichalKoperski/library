@@ -37,4 +37,24 @@ public class RentDto {
     public String getRentTill() {
         return rentTill;
     }
+
+    public void setId(int idRent) {
+        this.idRent = idRent;
+    }
+
+    public void setCopyOfBookDto(CopyOfBookDto copyOfBookDto) {
+        this.copyOfBookDto = copyOfBookDto;
+    }
+
+    public void setCustomerDto(CustomerDto customerDto) {
+        this.customerDto = customerDto;
+    }
+
+    public void setDateOfRent(String dateOfRent) {
+        this.dateOfRent = dateOfRent;
+    }
+
+    public void setRentTill(String rentTill) {
+        this.rentTill = rentTill;
+    }
 }
