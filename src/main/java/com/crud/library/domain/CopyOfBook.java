@@ -31,7 +31,7 @@ public class CopyOfBook {
     @ManyToOne(
             targetEntity = Book.class,
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER
     )
     @JoinColumn(name="IDBOOK")
     public Book getBook() {
