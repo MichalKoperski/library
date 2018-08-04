@@ -24,7 +24,7 @@ public class Rent {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "IDRENT", unique = true)
     public int getId() {
         return idRent;
     }

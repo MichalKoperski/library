@@ -9,6 +9,7 @@ public class Customer {
     private String firstname;
     private String lastname;
     private String dateOfJoin;
+    private Rent rent;
 
     public Customer(){}
 
@@ -21,7 +22,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "IDCUSTOMER", unique = true)
     public int getId() {
         return idCustomer;
     }
@@ -37,9 +38,10 @@ public class Customer {
     public String getDateOfJoin() {
         return dateOfJoin;
     }
+
     @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="IDCUSTOMER")
-    public Rent getRentInfo() {return new Rent();}
+    public Rent getRent() {return rent;}
 
     public void setId(int idCustomer) {
         this.idCustomer = idCustomer;
@@ -55,5 +57,9 @@ public class Customer {
 
     public void setDateOfJoin(String dateOfJoin) {
         this.dateOfJoin = dateOfJoin;
+    }
+
+    public void setRentInfo(Rent rent) {
+        this.rent = rent;
     }
 }

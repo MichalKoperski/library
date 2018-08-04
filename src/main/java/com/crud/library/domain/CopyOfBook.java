@@ -10,6 +10,7 @@ public class CopyOfBook {
     private int idCopy;
     private Book book;
     private String status;
+    private Rent rent;
 
     public CopyOfBook() {
     }
@@ -22,24 +23,29 @@ public class CopyOfBook {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "IDCOPY", unique = true)
     public int getId() {
         return idCopy;
     }
 
-    @ManyToOne
+    @ManyToOne(
+            targetEntity = Book.class,
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     @JoinColumn(name="IDBOOK")
-   // @Column(name = "BOOK")
     public Book getBook() {
         return book;
     }
+
     @Column(name = "STATUS")
     public String getStatus() {
         return status;
     }
+
     @OneToOne(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="IDCOPY")
-    public Rent getRentInfo() {return new Rent();}
+    public Rent getRent() {return rent;}
 
     public void setId(int idCopy) {
         this.idCopy = idCopy;
@@ -51,5 +57,9 @@ public class CopyOfBook {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setRentInfo(Rent rent) {
+        this.rent = rent;
     }
 }

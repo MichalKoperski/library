@@ -11,6 +11,7 @@ public class Book {
     private String title;
     private String author;
     private int publicationYear;
+    private List<CopyOfBook> listOfCopies = new ArrayList<>();
 
     public Book() {
     }
@@ -24,32 +25,36 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Column(name = "ID", unique = true)
+    @Column(name = "IDBOOK", unique = true)
     public int getId() {
         return idBook;
     }
+
     @Column(name = "TITLE")
     public String getTitle() {
         return title;
     }
+
     @Column(name="AUTHOR")
     public String getAuthor() {
         return author;
     }
+
     @Column(name="PUBLICATIONYEAR")
     public int getPublicationYear() {
         return publicationYear;
     }
+
     @OneToMany(
             targetEntity = CopyOfBook.class,
-            mappedBy = "book",
+            mappedBy = "book.idBook",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
+    // @JoinColumn(name="IDBOOK")
     public List<CopyOfBook> getListOfCopies() {
-        return new ArrayList<CopyOfBook>();
+        return listOfCopies;
     }
-
     public void setId(int idBook) {
         this.idBook = idBook;
     }
@@ -65,4 +70,6 @@ public class Book {
     public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
     }
+
+    public void setListOfCopies(List<CopyOfBook> listOfCopies) {this.listOfCopies = listOfCopies;}
 }
