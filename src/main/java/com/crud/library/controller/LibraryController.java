@@ -4,10 +4,7 @@ import com.crud.library.domain.*;
 import com.crud.library.mapper.LibraryMapper;
 import com.crud.library.service.DbService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/v1/library")
@@ -29,7 +26,7 @@ public class LibraryController {
         service.addCopyOfBook(libraryMapper.maptToCopyOfBook(copyOfBookDto));
     }
     @RequestMapping(method = RequestMethod.PUT, value = "changeCopyStatus")
-    public void changeCopyStatus(@RequestBody CopyOfBookDto copyOfBookDto, String status) {
+    public void changeCopyStatus(@RequestBody CopyOfBookDto copyOfBookDto, @RequestParam String status) {
         service.changeCopyStatus(libraryMapper.maptToCopyOfBook(copyOfBookDto), status);
     }
     @RequestMapping(method = RequestMethod.GET, value = "availableCopies")
@@ -37,7 +34,7 @@ public class LibraryController {
         return service.availableCopies(libraryMapper.maptToBook(bookDto));
     }
     @RequestMapping(method = RequestMethod.POST, value = "rentBook")
-    public RentDto rentBook(@RequestBody CopyOfBookDto copyOfBookDto, CustomerDto customerDto) {
+    public RentDto rentBook(@RequestBody CopyOfBookDto copyOfBookDto, @RequestBody CustomerDto customerDto) {
         return libraryMapper.maptToRentDto(service.rentBook(libraryMapper.maptToCopyOfBook(copyOfBookDto),libraryMapper.maptToCustomer(customerDto)));
     }
     @RequestMapping(method = RequestMethod.POST, value = "bookReturn")
