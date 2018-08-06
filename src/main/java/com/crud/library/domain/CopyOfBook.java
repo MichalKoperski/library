@@ -59,7 +59,7 @@ public class CopyOfBook {
         this.status = status;
     }
 
-    public void setRentInfo(Rent rent) {
+    public void setRent(Rent rent) {
         this.rent = rent;
     }
 }

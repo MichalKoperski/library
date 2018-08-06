@@ -47,7 +47,7 @@ public class Book {
 
     @OneToMany(
             targetEntity = CopyOfBook.class,
-            mappedBy = "book.idBook",
+            mappedBy = "book",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )

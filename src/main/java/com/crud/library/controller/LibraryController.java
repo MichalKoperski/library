@@ -34,8 +34,8 @@ public class LibraryController {
         return service.availableCopies(libraryMapper.maptToBook(bookDto));
     }
     @RequestMapping(method = RequestMethod.POST, value = "rentBook")
-    public RentDto rentBook(@RequestBody CopyOfBookDto copyOfBookDto, @RequestBody CustomerDto customerDto) {
-        return libraryMapper.maptToRentDto(service.rentBook(libraryMapper.maptToCopyOfBook(copyOfBookDto),libraryMapper.maptToCustomer(customerDto)));
+    public RentDto rentBook(@RequestBody RentDto rentDto) {
+        return libraryMapper.maptToRentDto(service.rentBook(libraryMapper.maptToRent(rentDto)));
     }
     @RequestMapping(method = RequestMethod.POST, value = "bookReturn")
     public void bookReturn(@RequestBody RentDto rentDto) {

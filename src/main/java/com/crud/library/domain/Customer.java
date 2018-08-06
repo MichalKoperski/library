@@ -59,7 +59,7 @@ public class Customer {
         this.dateOfJoin = dateOfJoin;
     }
 
-    public void setRentInfo(Rent rent) {
+    public void setRent(Rent rent) {
         this.rent = rent;
     }
 }

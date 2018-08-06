@@ -44,8 +44,8 @@ public class DbService {
                 .filter(t->t.getStatus().equalsIgnoreCase("AVAILABLE"))
                 .count();
     }
-    public Rent rentBook(CopyOfBook copyOfBook, Customer customer) {
-        return rentRepository.save(copyOfBook, customer);
+    public Rent rentBook(Rent rent) {
+        return rentRepository.save(rent);
     }
     public void bookReturn(Rent rent) {
         rentRepository.deleteById(rent.getId());

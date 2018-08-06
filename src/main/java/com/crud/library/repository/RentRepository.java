@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 @Repository
 public interface RentRepository extends CrudRepository<Rent, Integer> {
 
-    Rent save (CopyOfBook copyOfBook, Customer customer);
+    Rent save (Rent rent);
 
     void deleteById (long id);
 }
