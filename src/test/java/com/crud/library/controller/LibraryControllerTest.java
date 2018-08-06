@@ -112,7 +112,6 @@ public class LibraryControllerTest {
                 .characterEncoding("UTF-8")
                 .content(jsonContent));
     }
-
     @Test
     public void shouldFindAvailableCopies() throws Exception {
         //Given
@@ -124,12 +123,15 @@ public class LibraryControllerTest {
 
         when(service.availableCopies(libraryMapper.maptToBook(bookDto1))).thenReturn(1L);
 
+        Gson gson = new Gson();
+        String jsonContent = gson.toJson(1L);
+
         //When & Then
         mockMvc.perform(get("/v1/library/availableCopies")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
+                .content(jsonContent));
     }
-
     @Test
     public void shouldRentBook() throws Exception {
         //Given
@@ -155,7 +157,6 @@ public class LibraryControllerTest {
                 .characterEncoding("UTF-8")
                 .content(jsonContent));
     }
-
     @Test
     public void shouldReturnBook() throws Exception {
         //Given
