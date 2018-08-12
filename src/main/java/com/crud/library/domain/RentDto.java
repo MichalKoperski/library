@@ -1,16 +1,22 @@
 package com.crud.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+
 public class RentDto {
     private int idRent;
     private CopyOfBookDto copyOfBookDto;
     private CustomerDto customerDto;
-    private String dateOfRent;
-    private String rentTill;
+    private LocalDate dateOfRent;
+    private LocalDate rentTill;
 
     public RentDto() {
     }
 
-    public RentDto(int idRent, CopyOfBookDto copyOfBookDto, CustomerDto customerDto, String dateOfRent, String rentTill) {
+    public RentDto(int idRent, CopyOfBookDto copyOfBookDto, CustomerDto customerDto, LocalDate dateOfRent, LocalDate rentTill) {
         this.idRent = idRent;
         this.copyOfBookDto = copyOfBookDto;
         this.customerDto = customerDto;
@@ -30,11 +36,13 @@ public class RentDto {
         return customerDto;
     }
 
-    public String getDateOfRent() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public LocalDate getDateOfRent() {
         return dateOfRent;
     }
 
-    public String getRentTill() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public LocalDate getRentTill() {
         return rentTill;
     }
 
@@ -50,11 +58,11 @@ public class RentDto {
         this.customerDto = customerDto;
     }
 
-    public void setDateOfRent(String dateOfRent) {
+    public void setDateOfRent(LocalDate dateOfRent) {
         this.dateOfRent = dateOfRent;
     }
 
-    public void setRentTill(String rentTill) {
+    public void setRentTill(LocalDate rentTill) {
         this.rentTill = rentTill;
     }
 }

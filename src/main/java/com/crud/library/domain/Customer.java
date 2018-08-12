@@ -1,19 +1,24 @@
 package com.crud.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Entity(name="CUSTOMER")
 public class Customer {
     private int idCustomer;
     private String firstname;
     private String lastname;
-    private String dateOfJoin;
+    private LocalDate dateOfJoin;
     private Rent rent;
 
     public Customer(){}
 
-    public Customer(int idCustomer, String firstname, String lastname, String dateOfJoin) {
+    public Customer(int idCustomer, String firstname, String lastname, LocalDate dateOfJoin) {
         this.idCustomer = idCustomer;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -35,7 +40,8 @@ public class Customer {
         return lastname;
     }
     @Column(name = "DATEOFJOIN")
-    public String getDateOfJoin() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public LocalDate getDateOfJoin() {
         return dateOfJoin;
     }
 
@@ -55,7 +61,7 @@ public class Customer {
         this.lastname = lastname;
     }
 
-    public void setDateOfJoin(String dateOfJoin) {
+    public void setDateOfJoin(LocalDate dateOfJoin) {
         this.dateOfJoin = dateOfJoin;
     }
 

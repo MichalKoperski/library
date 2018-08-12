@@ -1,20 +1,25 @@
 package com.crud.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Entity(name="RENT")
 public class Rent {
     private int idRent;
     private CopyOfBook copyOfBook;
     private Customer customer;
-    private String dateOfRent;
-    private String rentTill;
+    private LocalDate dateOfRent;
+    private LocalDate rentTill;
 
     public Rent() {
     }
 
-    public Rent(int idRent, CopyOfBook copyOfBook, Customer customer, String dateOfRent, String rentTill) {
+    public Rent(int idRent, CopyOfBook copyOfBook, Customer customer, LocalDate dateOfRent, LocalDate rentTill) {
         this.idRent = idRent;
         this.copyOfBook = copyOfBook;
         this.customer = customer;
@@ -38,12 +43,14 @@ public class Rent {
     public Customer getCustomer() { return customer;}
 
     @Column(name = "DATEOFRENT")
-    public String getDateOfRent() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public LocalDate getDateOfRent() {
         return dateOfRent;
     }
 
     @Column(name = "RENTTILL")
-    public String getRentTill() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public LocalDate getRentTill() {
         return rentTill;
     }
 
@@ -59,11 +66,11 @@ public class Rent {
         this.customer = customer;
     }
 
-    public void setDateOfRent(String dateOfRent) {
+    public void setDateOfRent(LocalDate dateOfRent) {
         this.dateOfRent = dateOfRent;
     }
 
-    public void setRentTill(String rentTill) {
+    public void setRentTill(LocalDate rentTill) {
         this.rentTill = rentTill;
     }
 }
