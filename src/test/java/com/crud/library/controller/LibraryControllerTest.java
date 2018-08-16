@@ -38,9 +38,9 @@ public class LibraryControllerTest {
     @Test
     public void shouldAddCustomer() throws Exception {
         //Given
-        Customer customer1 = new Customer(1, "John", "King", LocalDate(2018,10,10));
+        Customer customer1 = new Customer(1, "John", "King", LocalDate.of(2018,10,10));
 
-        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", LocalDate(2018,10,10));
+        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", LocalDate.of(2018,10,10));
 
         when(libraryMapper.maptToCustomer(customerDto1)).thenReturn(customer1);
 
@@ -143,10 +143,10 @@ public class LibraryControllerTest {
         BookDto bookDto1 = new BookDto(1, "Title", "John", 2018);
         CopyOfBookDto copyDto1 = new CopyOfBookDto(1, bookDto1, "available");
 
-        Customer customer1 = new Customer(1, "John", "King", LocalDate(2018,10,10));
-        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", LocalDate(2018,10,10));
+        Customer customer1 = new Customer(1, "John", "King", LocalDate.of(2018,10,10));
+        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", LocalDate.of(2018,10,10));
 
-        RentDto rentDto1 = new RentDto(1, copyDto1, customerDto1, LocalDate(2018,10,10), LocalDate(2018,10,10));
+        RentDto rentDto1 = new RentDto(1, copyDto1, customerDto1, LocalDate.of(2018,10,10), LocalDate.of(2018,10,10));
 
         when(libraryMapper.maptToRentDto(service.rentBook(libraryMapper.maptToRent(rentDto1)))).thenReturn(rentDto1);
 
@@ -168,11 +168,11 @@ public class LibraryControllerTest {
         BookDto bookDto1 = new BookDto(1, "Title", "John", 2018);
         CopyOfBookDto copyDto1 = new CopyOfBookDto(1, bookDto1, "available");
 
-        Customer customer1 = new Customer(1, "John", "King", LocalDate(2018,10,10));
-        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", LocalDate(2018,10,10));
+        Customer customer1 = new Customer(1, "John", "King", LocalDate.of(2018,10,10));
+        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", LocalDate.of(2018,10,10));
 
-        Rent rent1 = new Rent(1, copy1, customer1, LocalDate(2018,10,10), LocalDate(2018,10,10));
-        RentDto rentDto1 = new RentDto(1, copyDto1, customerDto1, LocalDate(2018,10,10), LocalDate(2018,10,10));
+        Rent rent1 = new Rent(1, copy1, customer1, LocalDate.of(2018,10,10), LocalDate.of(2018,10,10));
+        RentDto rentDto1 = new RentDto(1, copyDto1, customerDto1, LocalDate.of(2018,10,10), LocalDate.of(2018,10,10));
 
         when(libraryMapper.maptToRent(rentDto1)).thenReturn(rent1);
 
