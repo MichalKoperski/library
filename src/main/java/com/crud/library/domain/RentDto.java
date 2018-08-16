@@ -10,15 +10,13 @@ public class RentDto {
     private int idRent;
     private CopyOfBookDto copyOfBookDto;
     private CustomerDto customerDto;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate dateOfRent;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private LocalDate rentTill;
+    private String dateOfRent;
+    private String rentTill;
 
     public RentDto() {
     }
 
-    public RentDto(int idRent, CopyOfBookDto copyOfBookDto, CustomerDto customerDto, LocalDate dateOfRent, LocalDate rentTill) {
+    public RentDto(int idRent, CopyOfBookDto copyOfBookDto, CustomerDto customerDto, String dateOfRent, String rentTill) {
         this.idRent = idRent;
         this.copyOfBookDto = copyOfBookDto;
         this.customerDto = customerDto;
@@ -38,13 +36,11 @@ public class RentDto {
         return customerDto;
     }
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    public LocalDate getDateOfRent() {
+    public String getDateOfRent() {
         return dateOfRent;
     }
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    public LocalDate getRentTill() {
+    public String getRentTill() {
         return rentTill;
     }
 
@@ -60,11 +56,11 @@ public class RentDto {
         this.customerDto = customerDto;
     }
 
-    public void setDateOfRent(LocalDate dateOfRent) {
+    public void setDateOfRent(String dateOfRent) {
         this.dateOfRent = dateOfRent;
     }
 
-    public void setRentTill(LocalDate rentTill) {
+    public void setRentTill(String rentTill) {
         this.rentTill = rentTill;
     }
 }
