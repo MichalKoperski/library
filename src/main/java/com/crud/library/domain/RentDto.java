@@ -10,7 +10,9 @@ public class RentDto {
     private int idRent;
     private CopyOfBookDto copyOfBookDto;
     private CustomerDto customerDto;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfRent;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate rentTill;
 
     public RentDto() {

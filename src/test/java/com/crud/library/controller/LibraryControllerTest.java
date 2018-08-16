@@ -15,6 +15,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDate;
+
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -36,9 +38,9 @@ public class LibraryControllerTest {
     @Test
     public void shouldAddCustomer() throws Exception {
         //Given
-        Customer customer1 = new Customer(1, "John", "King", "2018");
+        Customer customer1 = new Customer(1, "John", "King", new LocalDate.of(2018,10,10));
 
-        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", "2018");
+        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", new LocalDate.of(2018,10,10));
 
         when(libraryMapper.maptToCustomer(customerDto1)).thenReturn(customer1);
 
@@ -141,10 +143,10 @@ public class LibraryControllerTest {
         BookDto bookDto1 = new BookDto(1, "Title", "John", 2018);
         CopyOfBookDto copyDto1 = new CopyOfBookDto(1, bookDto1, "available");
 
-        Customer customer1 = new Customer(1, "John", "King", "2018");
-        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", "2018");
+        Customer customer1 = new Customer(1, "John", "King", new LocalDate.of(2018,10,10));
+        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", new LocalDate.of(2018,10,10));
 
-        RentDto rentDto1 = new RentDto(1, copyDto1, customerDto1, "2018", "2019");
+        RentDto rentDto1 = new RentDto(1, copyDto1, customerDto1, new LocalDate.of(2018,10,10), new LocalDate.of(2018,10,10));
 
         when(libraryMapper.maptToRentDto(service.rentBook(libraryMapper.maptToRent(rentDto1)))).thenReturn(rentDto1);
 
@@ -166,11 +168,11 @@ public class LibraryControllerTest {
         BookDto bookDto1 = new BookDto(1, "Title", "John", 2018);
         CopyOfBookDto copyDto1 = new CopyOfBookDto(1, bookDto1, "available");
 
-        Customer customer1 = new Customer(1, "John", "King", "2018");
-        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", "2018");
+        Customer customer1 = new Customer(1, "John", "King", new LocalDate.of(2018,10,10));
+        CustomerDto customerDto1 = new CustomerDto(1, "John", "King", new LocalDate.of(2018,10,10));
 
-        Rent rent1 = new Rent(1, copy1, customer1, "2018", "2019");
-        RentDto rentDto1 = new RentDto(1, copyDto1, customerDto1, "2018", "2019");
+        Rent rent1 = new Rent(1, copy1, customer1, new LocalDate.of(2018,10,10), new LocalDate.of(2018,10,10));
+        RentDto rentDto1 = new RentDto(1, copyDto1, customerDto1, new LocalDate.of(2018,10,10), new LocalDate.of(2018,10,10));
 
         when(libraryMapper.maptToRent(rentDto1)).thenReturn(rent1);
 

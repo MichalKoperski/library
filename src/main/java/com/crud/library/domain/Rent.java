@@ -13,7 +13,9 @@ public class Rent {
     private int idRent;
     private CopyOfBook copyOfBook;
     private Customer customer;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfRent;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate rentTill;
 
     public Rent() {

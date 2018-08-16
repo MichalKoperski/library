@@ -13,6 +13,7 @@ public class Customer {
     private int idCustomer;
     private String firstname;
     private String lastname;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfJoin;
     private Rent rent;
 
