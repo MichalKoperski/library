@@ -13,7 +13,9 @@ public class Rent {
     private int idRent;
     private CopyOfBook copyOfBook;
     private Customer customer;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dateOfRent;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate rentTill;
 
     public Rent() {
@@ -43,11 +45,13 @@ public class Rent {
     public Customer getCustomer() { return customer;}
 
     @Column(name = "DATEOFRENT")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public LocalDate getDateOfRent() {
         return dateOfRent;
     }
 
     @Column(name = "RENTTILL")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public LocalDate getRentTill() {
         return rentTill;
     }

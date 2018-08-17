@@ -10,11 +10,12 @@ public class CustomerDto {
     private int id;
     private String firstname;
     private String lastname;
-    private String dateOfJoin;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate dateOfJoin;
 
     public CustomerDto(){}
 
-    public CustomerDto(int id, String firstname, String lastname, String dateOfJoin) {
+    public CustomerDto(int id, String firstname, String lastname, LocalDate dateOfJoin) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -33,7 +34,8 @@ public class CustomerDto {
         return lastname;
     }
 
-    public String getDateOfJoin() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public LocalDate getDateOfJoin() {
         return dateOfJoin;
     }
 
@@ -49,7 +51,7 @@ public class CustomerDto {
         this.lastname = lastname;
     }
 
-    public void setDateOfJoin(String dateOfJoin) {
+    public void setDateOfJoin(LocalDate dateOfJoin) {
         this.dateOfJoin = dateOfJoin;
     }
 }
